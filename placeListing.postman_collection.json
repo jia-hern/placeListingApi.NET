@@ -1,0 +1,2584 @@
+{
+	"info": {
+		"_postman_id": "97f5e442-930e-4c87-bdb7-37cde147a67c",
+		"name": "NET placeListing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12375739"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"password\":\"anotherUser1!\",\r\n    \"firstName\":\"admin\",\r\n    \"lastName\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"anotherUser@example.com\",\r\n    \"password\":\"anotherUser1!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"password\":\"anotherUser1!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login wrong password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"anotherUser@example.com\",\r\n    \"password\":\"wrongPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login non existing user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"notExisting@example.com\",\r\n    \"password\":\"wrongPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register existing user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"anotherUser@example.com\",\r\n    \"password\":\"anotherUser1!\",\r\n    \"firstName\":\"aFirstName\",\r\n    \"lastName\":\"aLastName\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register password not satisfied",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"anotherUser@example.com\",\r\n    \"password\":\"anotherUser\",\r\n    \"firstName\":\"aFirstName\",\r\n    \"lastName\":\"aLastName\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Place",
+			"item": [
+				{
+					"name": "getAll with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/GetAll",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll with no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/GetAll",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImU4OTJmZDQ2LTlhMzktNDAzOC1iNjZjLWY1ZjEwZjcwOWNjOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTkyODUxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.lxA32HAfJL_d55lJTt9vO8wXok5zQiL0yN6vIGdDpUM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"name of place\",\r\n  \"address\": \"address of place\",\r\n  \"rating\": 5,\r\n  \"countryId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/Places",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create place Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImU4OTJmZDQ2LTlhMzktNDAzOC1iNjZjLWY1ZjEwZjcwOWNjOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTkyODUxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.lxA32HAfJL_d55lJTt9vO8wXok5zQiL0yN6vIGdDpUM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"name of place\",\r\n  \"address\": \"address of place\",\r\n  \"rating\": 5,\r\n  \"countryId\": -100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/Places",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create place no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"name of place\",\r\n  \"address\": \"address of place\",\r\n  \"rating\": 5,\r\n  \"countryId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/Places",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete place by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete place by id not admin token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImU4OTJmZDQ2LTlhMzktNDAzOC1iNjZjLWY1ZjEwZjcwOWNjOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTkyODUxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.lxA32HAfJL_d55lJTt9vO8wXok5zQiL0yN6vIGdDpUM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/100",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete place by id not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/100",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete place by id bad request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete place by id no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/100",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get place by id with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImYyZjBkMDMyLWRkOTItNDkzOC04YzE5LTVlNjFhMzJlODQxZiIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTA5MzkyLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.LdqdDXV0dSfZphTSW5O7tKZDe9zdbCCT-c3KmSZx8Kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get place by id no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get place by id not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImJhMjA5MGRhLTA5N2EtNGQwMC04NmEwLTkwYjQ1ZmJhNzRjNCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTA4NDg5LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.BN4fmrEpuvezRha6d94UZ92bGVAtLtZ-fL129X4dhdI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get place by id bad request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjEyMDVlODg4LTllMTYtNGM1Yy1hYzg3LWVjYjU2NDdhOWNiOSIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNjA1OTM1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.ZkyuB_I3ivaADIbfVfHnae_GhrN-wtwvfbuI7rfEu7Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								"a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjA0MDZmZDY4LTM1N2QtNGUyNC05ZWRkLTJmN2VkNzgwNThiMyIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTEwMTUwLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.u_ZYfM0pz5X3OpP0FVd_BTzGuOQUzoaruCYOggY4QAo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":1,\r\n    \"name\": \"Resorts World Sentosa\",\r\n    \"address\": \"8 Sentosa Gateway, 098269\",\r\n    \"rating\": 5,\r\n    \"countryId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/Places",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update place  no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":1,\r\n    \"name\": \"Resorts World Sentosa\",\r\n    \"address\": \"8 Sentosa Gateway, 098269\",\r\n    \"rating\": 5,\r\n    \"countryId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/Places",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update place Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjA0MDZmZDY4LTM1N2QtNGUyNC05ZWRkLTJmN2VkNzgwNThiMyIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTEwMTUwLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.u_ZYfM0pz5X3OpP0FVd_BTzGuOQUzoaruCYOggY4QAo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":\"a\",\r\n    \"name\": \"Resorts World Sentosa\",\r\n    \"address\": \"8 Sentosa Gateway, 098269\",\r\n    \"rating\": 5,\r\n    \"countryId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/Places",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update place Not Found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjA0MDZmZDY4LTM1N2QtNGUyNC05ZWRkLTJmN2VkNzgwNThiMyIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTEwMTUwLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.u_ZYfM0pz5X3OpP0FVd_BTzGuOQUzoaruCYOggY4QAo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Resorts World Sentosa\",\r\n    \"address\": \"8 Sentosa Gateway, 098269\",\r\n    \"rating\": 5,\r\n    \"countryId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/Places",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaged with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImJhMjA5MGRhLTA5N2EtNGQwMC04NmEwLTkwYjQ1ZmJhNzRjNCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTA4NDg5LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.BN4fmrEpuvezRha6d94UZ92bGVAtLtZ-fL129X4dhdI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/?StartIndex=1&PageSize=1&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "1"
+								},
+								{
+									"key": "PageSize",
+									"value": "1"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaged with token internal server error",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImJhMjA5MGRhLTA5N2EtNGQwMC04NmEwLTkwYjQ1ZmJhNzRjNCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTA4NDg5LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.BN4fmrEpuvezRha6d94UZ92bGVAtLtZ-fL129X4dhdI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/?StartIndex=-1&PageSize=-1&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "-1"
+								},
+								{
+									"key": "PageSize",
+									"value": "-1"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaged with token bad request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6ImJhMjA5MGRhLTA5N2EtNGQwMC04NmEwLTkwYjQ1ZmJhNzRjNCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTA4NDg5LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.BN4fmrEpuvezRha6d94UZ92bGVAtLtZ-fL129X4dhdI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/?StartIndex=a&PageSize=a&PageNumber=a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "a"
+								},
+								{
+									"key": "PageSize",
+									"value": "a"
+								},
+								{
+									"key": "PageNumber",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaged with no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/?StartIndex=1&PageSize=1&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "1"
+								},
+								{
+									"key": "PageSize",
+									"value": "1"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaged with no token Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/Places/?StartIndex=1&PageSize=1&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"Places",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "1"
+								},
+								{
+									"key": "PageSize",
+									"value": "1"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country v1",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/GetAll",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								"a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries default parameters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries specified params",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/?StartIndex=0&PageSize=2&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "0"
+								},
+								{
+									"key": "PageSize",
+									"value": "2"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries bad request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/?StartIndex=a&PageSize=a&PageNumber=a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "a"
+								},
+								{
+									"key": "PageSize",
+									"value": "a"
+								},
+								{
+									"key": "PageNumber",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries internal server error",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/?StartIndex=-1&PageSize=-1&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "-1"
+								},
+								{
+									"key": "PageSize",
+									"value": "-1"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6Ijg0NzQyM2Y2LTZiZTAtNGNhYy1hNzI4LTRjMjc5N2YwZTUyOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTk2NDYxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.xM-Bj8gI2LSWlqtckbcnWz3tMLZU27GckWVfg5c41aI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 1,\r\n    \"name\": \"Singapore\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 1,\r\n    \"name\": \"Singapore edited\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6Ijg0NzQyM2Y2LTZiZTAtNGNhYy1hNzI4LTRjMjc5N2YwZTUyOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTk2NDYxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.xM-Bj8gI2LSWlqtckbcnWz3tMLZU27GckWVfg5c41aI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": \"a\",\r\n    \"name\": \"Singapore\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6Ijg0NzQyM2Y2LTZiZTAtNGNhYy1hNzI4LTRjMjc5N2YwZTUyOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTk2NDYxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.xM-Bj8gI2LSWlqtckbcnWz3tMLZU27GckWVfg5c41aI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": -1,\r\n    \"name\": \"Singapore\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create country with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6Ijg0NzQyM2Y2LTZiZTAtNGNhYy1hNzI4LTRjMjc5N2YwZTUyOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTk2NDYxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.xM-Bj8gI2LSWlqtckbcnWz3tMLZU27GckWVfg5c41aI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"new country\",\r\n    \"natCode\": \"ABC\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create country no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"new country\",\r\n    \"natCode\": \"ABC\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create country Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6Ijg0NzQyM2Y2LTZiZTAtNGNhYy1hNzI4LTRjMjc5N2YwZTUyOCIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNTk2NDYxLCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.xM-Bj8gI2LSWlqtckbcnWz3tMLZU27GckWVfg5c41aI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"new country\",\r\n    \"natCode\": 1\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6IjNmZmM5NWJhLWI0MzMtNDdiMi1hMDJmLTY4YjI5NzhkODQ3MCIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNjA1MDI1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.C6yIM51gDJdnHEjplj05AVyzmZkwZ02V2c_ybo0z8e4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6IjNmZmM5NWJhLWI0MzMtNDdiMi1hMDJmLTY4YjI5NzhkODQ3MCIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNjA1MDI1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.C6yIM51gDJdnHEjplj05AVyzmZkwZ02V2c_ybo0z8e4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v1/Countries/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v1",
+								"Countries",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country v2",
+			"item": [
+				{
+					"name": "get with OData",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get with OData select name,natCode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries?$select=name,natCode",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "name,natCode"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get with OData filter name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries?$filter=name eq 'Singapore'",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "name eq 'Singapore'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get with OData order by name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries?$orderby=name",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							],
+							"query": [
+								{
+									"key": "$orderby",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get with OData select & filter & order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries?$select=name,natCode&$filter=name eq 'Singapore'&$orderby=name",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "name,natCode"
+								},
+								{
+									"key": "$filter",
+									"value": "name eq 'Singapore'"
+								},
+								{
+									"key": "$orderby",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries default parameters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/Paged",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"Paged"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries specified params",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/Paged/?StartIndex=0&PageSize=2&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"Paged",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "0"
+								},
+								{
+									"key": "PageSize",
+									"value": "2"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries bad request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/Paged/?StartIndex=a&PageSize=a&PageNumber=a",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"Paged",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "a"
+								},
+								{
+									"key": "PageSize",
+									"value": "a"
+								},
+								{
+									"key": "PageNumber",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPagedCountries internal server error",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/Paged/?StartIndex=-1&PageSize=-1&PageNumber=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"Paged",
+								""
+							],
+							"query": [
+								{
+									"key": "StartIndex",
+									"value": "-1"
+								},
+								{
+									"key": "PageSize",
+									"value": "-1"
+								},
+								{
+									"key": "PageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjEyMDVlODg4LTllMTYtNGM1Yy1hYzg3LWVjYjU2NDdhOWNiOSIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNjA1OTM1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.ZkyuB_I3ivaADIbfVfHnae_GhrN-wtwvfbuI7rfEu7Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 1,\r\n    \"name\": \"Singapore\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6Ijg0ODNlNjM3LWQ5MTAtNGFhNi04NmI3LTAyNjEzZWE4MDEwNyIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNTk0MTc0LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.SNZh6K3Th0uzJXiN8WuHMTBNkyoNrPvYIw4wg26EPa4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": 1,\r\n    \"name\": \"Singapore edited\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjEyMDVlODg4LTllMTYtNGM1Yy1hYzg3LWVjYjU2NDdhOWNiOSIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNjA1OTM1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.ZkyuB_I3ivaADIbfVfHnae_GhrN-wtwvfbuI7rfEu7Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": \"a\",\r\n    \"name\": \"Singapore\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjEyMDVlODg4LTllMTYtNGM1Yy1hYzg3LWVjYjU2NDdhOWNiOSIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNjA1OTM1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.ZkyuB_I3ivaADIbfVfHnae_GhrN-wtwvfbuI7rfEu7Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": -1,\r\n    \"name\": \"Singapore\",\r\n    \"natCode\": \"SGP\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create country with token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjEyMDVlODg4LTllMTYtNGM1Yy1hYzg3LWVjYjU2NDdhOWNiOSIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNjA1OTM1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.ZkyuB_I3ivaADIbfVfHnae_GhrN-wtwvfbuI7rfEu7Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"new country\",\r\n    \"natCode\": \"ABC\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create country no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"new country\",\r\n    \"natCode\": \"ABC\"\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create country Bad Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbm90aGVyVXNlckBleGFtcGxlLmNvbSIsImp0aSI6IjEyMDVlODg4LTllMTYtNGM1Yy1hYzg3LWVjYjU2NDdhOWNiOSIsImVtYWlsIjoiYW5vdGhlclVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiI1ZmZjZmRkYS1iN2IwLTRlYjItYTg2Yi0xZmYwZDhjMWY5MTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzExNjA1OTM1LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.ZkyuB_I3ivaADIbfVfHnae_GhrN-wtwvfbuI7rfEu7Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"new country\",\r\n    \"natCode\": 1\r\n }   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6IjdmYjRhZmE5LTY2YjctNGZhYy04YjZmLWQ2NjRkYzNlYTJlZiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNjA2MTE5LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.unXcPATEZzdtW1yC3qu2L1yBAFbmM9xWVWN37xJ4vjE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id not found",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImp0aSI6IjdmYjRhZmE5LTY2YjctNGZhYy04YjZmLWQ2NjRkYzNlYTJlZiIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJ1aWQiOiIyMDYyYThlMi0yZjU5LTQ3ZTEtODdhMC0xYTZkZjk5N2RmMDEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzExNjA2MTE5LCJpc3MiOiJQbGFjZUxpc3RpbmdBUEkiLCJhdWQiOiJQbGFjZUxpc3RpbmdBUElDbGllbnQifQ.unXcPATEZzdtW1yC3qu2L1yBAFbmM9xWVWN37xJ4vjE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id no token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7086/api/v2/Countries/-1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7086",
+							"path": [
+								"api",
+								"v2",
+								"Countries",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
